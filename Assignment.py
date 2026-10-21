@@ -41,3 +41,43 @@ student = {
 print(marks)
 print(subjects)
 print(student)
+
+
+def calculate_average(marks):
+    return sum(marks) / len(marks)
+
+
+def get_grade(average):
+    if average >= 80:
+        return "A"
+    elif average >= 60:
+        return "B"
+    elif average >= 40:
+        return "C"
+    else:
+        return "Fail"
+
+
+name = input("Enter student name: ")
+
+marks = []
+
+for i in range(1, 4):
+    mark = float(input(f"Enter mark for subject {i}: "))
+    marks.append(mark)
+
+average = calculate_average(marks)
+grade = get_grade(average)
+
+student = {
+    "name": name,
+    "marks": marks,
+    "average": average,
+    "grade": grade
+}
+
+print("\n--- Student Performance Report ---")
+print("Name:", student["name"])
+print("Marks:", student["marks"])
+print("Average:", round(student["average"], 2))
+print("Grade:", student["grade"])
